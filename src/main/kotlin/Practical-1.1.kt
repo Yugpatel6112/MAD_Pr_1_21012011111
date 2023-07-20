@@ -20,7 +20,7 @@ fun main(){
     var f:Char='a'
     println("$f: Character variable")
 
-    var l:Long=21012011043
+    var l:Long=21012011111
     println("$l: long value")
 
     var s:Short=43
