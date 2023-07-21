@@ -35,7 +35,6 @@ fun main()
     var a7= IntArray(5)
     for(i in 0..a7.size-1)
     {
-
         println("a[$i]:${a7[i]}")
     }
 
