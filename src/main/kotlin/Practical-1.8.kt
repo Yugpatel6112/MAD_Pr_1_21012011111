@@ -1,42 +1,86 @@
+import org.w3c.dom.ranges.Range
+import java.awt.font.NumericShaper
 import java.util.*
-fun main()
-{
-    println("Create Array-1 by using arrayOf() method:")
-    var a1= arrayOf<Int>(7,10,18,33,45)
-    println(Arrays.deepToString(a1))
-    println("Create Array-2 by using array<> method:")
-    var a2=Array<Int>(5){7}
-    println(Arrays.deepToString(a2))
-    println("Create Array-3 by using array<> and lambda function:")
-    var a3=Array<Int>(7){i:Int->i}
-    println(Arrays.deepToString(a3))
-    println("Create Array-4 by using IntArray():")
-    var a4=IntArray(7)
-    a4[0]=5
-    a4[1]=6
-    a4[2]=9
-    a4[3]=11
-    a4[4]=10
-    for(i in 0..4)
-    {
-        print("${a4[i]}")
+import kotlin.collections.ArrayList
+
+fun main() {
+    var a = arrayOf(10, 20, 30, 40)
+    println("Array-1 by using arrayof() method : "+ Arrays.deepToString(a))
+
+    var a2 = IntArray(size = 3)
+    a2[0] = 10
+    a2[1] = 20
+    a2[2] = 30
+    print("Array-2 by using IntArray() method : ")
+    for (i in a2) {
+        print(" "+i)
     }
-    println()
-    println("Create Array-5 by using IntArrayOf():")
-    var a5= IntArray(5)
-    for(i in 0..a5.size-1) {
-        print("${a5[i]}")
+    println("")
+
+    var a3 = intArrayOf(1,2,3,4,5)
+    print("Array-3 by using intArrayOf() method : ")
+    for (j in a3) {
+        print(" "+j)
     }
-    println()
-    var a6=arrayOf(arrayOf(10,11,12,13,14), arrayOf(7,10,18,33,45))
-    println("Create 2D Array-6 by using arrayOf() and intArrayOf()")
-    println(Arrays.deepToString(a6))
-    println("Please enter Array value:")
-    var a7= IntArray(5)
-    for(i in 0..a7.size-1)
-    {
-        println("a[$i]:${a7[i]}")
+    println("")
+
+    var a4 = Array<Int>(size = 5){0}
+    println("Array-4 by using Array<>() : "+Arrays.deepToString(a4))
+
+    val a5 = Array<Int>(size = 5) {index -> index * 2}
+    print("Array-5 by using Array<>() and lambda function : ")
+    for (i in a5) {
+        print(" "+i)
+    }
+    println("")
+
+    var a6 = arrayOf(
+        intArrayOf(1, 3),
+        intArrayOf(4, 5),
+        intArrayOf(6, 7)
+    )
+    println("2D Array-6 by using arrayOf() and intArrayOf() : "+Arrays.deepToString(a6))
+
+    var b = IntArray(size = 5)
+    println("Please enter Array values : ")
+    for (i in 0 until 5) {
+        print("a[$i] : ")
+        var input = readLine()!!.toInt()
+        b[i] = input
     }
 
+    println("Entered Array : ")
+    for (elements in b){
+        print(" "+elements)
+    }
+    println("")
 
+    println("**********With Built-in Function**********")
+    b.sort()
+    println("After Sorting by built-in function : ")
+    for (elements in b){
+        print(" "+elements)
+    }
+    println("")
+
+    println("*********Without built-in function**********")
+    bubbleSort(b)
+    println("After Sorting without built-in function : ")
+    for (elements in b){
+        print(" "+elements)
+    }
+    println("")
+}
+
+fun bubbleSort(b: IntArray) {
+    var n = b.size
+    for (i in 0 until n-1) {
+        for (j in 0 until n-i-1) {
+            if (b[j] > b[j+1]) {
+                var temp = b[j]
+                b[j] = b[j+1]
+                b[j+1] = temp
+            }
+        }
+    }
 }
