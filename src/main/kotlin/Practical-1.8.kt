@@ -1,5 +1,5 @@
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 fun main() {
     var a = arrayOf(10, 20, 30, 40)
