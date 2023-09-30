@@ -1,6 +1,6 @@
 fun main(){
     print("Enter a number : ")
-    var usrInput = readln().toInt()
+    var usrInput = readLine()!!.toInt()
     println("Factorial = " + factorial(usrInput))
 
 }

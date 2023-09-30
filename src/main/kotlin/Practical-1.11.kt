@@ -1,4 +1,3 @@
-import javax.print.attribute.standard.MediaSize.Other
 
 class Matrix(var data: Array<IntArray>) {
     val rows: Int = data.size
